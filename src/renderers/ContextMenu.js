@@ -66,7 +66,8 @@ export const computePosition = (layouts, isRTL) => {
   const left = axisPosition(oWidth, wWidth, tX - wX, tWidth);
   const start = isRTL ? 'right' : 'left';
   const position = { top, [start]: left };
-  return fitPositionIntoSafeArea(position, layouts);
+  return position;
+  //return fitPositionIntoSafeArea(position, layouts);
 };
 
 export default class ContextMenu extends React.Component {
