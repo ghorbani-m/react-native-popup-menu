@@ -66,8 +66,7 @@ export const computePosition = (layouts, isRTL) => {
   const left = axisPosition(oWidth, wWidth, tX - wX, tWidth);
   const start = isRTL ? 'right' : 'left';
   const position = { top, [start]: left };
-  return position;
-  //return fitPositionIntoSafeArea(position, layouts);
+  return fitPositionIntoSafeArea(position, layouts);
 };
 
 export default class ContextMenu extends React.Component {
@@ -105,7 +104,8 @@ export default class ContextMenu extends React.Component {
       transform: [ { scale: this.state.scaleAnim } ],
       opacity: this.state.scaleAnim,
     };
-    const position = computePosition(layouts, I18nManager.isRTL);
+    //const position = computePosition(layouts, I18nManager.isRTL);
+    const position = computePosition(layouts, false);
     return (
       <Animated.View {...other} style={[styles.options, style, animation, position]}>
         {children}
